@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:model="http://dto.generated.model.kybox.fr"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           targetNamespace="http://msg.generated.model.kybox.fr"
+           jaxb:version="2.0">
+
+    <!-- IMPORTS -->
+    <xs:import namespace="http://dto.generated.model.kybox.fr" schemaLocation="model.xsd"/>
+
+    <!-- ADD ROLE REQUEST -->
+    <xs:element name="AddRoleReq">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="model:Role"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!-- ADD ROLE RESPONSE -->
+    <xs:element name="AddRoleResp">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="response" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- ADD EMPLOYEE REQUEST -->
+    <xs:element name="AddEmployeeReq">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="model:Employee"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!-- ADD EMPLOYEE RESPONSE -->
+    <xs:element name="AddEmployeeResp">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="response" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- GET ROLE LIST REQUEST -->
+    <xs:element name="GetRoleListReq">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="option" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetRoleListResp">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="model:Role" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:appinfo>
+                            <jaxb:property name="roleList"/>
+                        </xs:appinfo>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
